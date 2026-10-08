@@ -1,0 +1,9 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_main"]
+[ext_resource type="PackedScene" uid="uid://cfwy7ng5dqskh" path="res://teste.tscn" id="2_mapa"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_main")
+
+[node name="Mapa" parent="." instance=ExtResource("2_mapa")]

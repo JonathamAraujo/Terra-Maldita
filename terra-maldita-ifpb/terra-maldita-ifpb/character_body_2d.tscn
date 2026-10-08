@@ -1,0 +1,157 @@
+[gd_scene format=3 uid="uid://c7herqqsijjqc"]
+
+[ext_resource type="Texture2D" uid="uid://dcl7kk54aassg" path="res://Assets/cangaceiro_spritesheet.png" id="1_f50pn"]
+[ext_resource type="Script" uid="uid://crs4ymfyq01rh" path="res://character_body_2d.gd" id="1_ij6vw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bhunq"]
+size = Vector2(28, 9)
+
+[sub_resource type="Animation" id="Animation_ij6vw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CangaceiroSpritesheet:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_44cfe"]
+resource_name = "idle_down"
+step = 0.16666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CangaceiroSpritesheet:frame")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.33333334, 0.5, 0.6666667, 0.8333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_dd465"]
+resource_name = "idle_up"
+loop_mode = 1
+step = 0.16666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CangaceiroSpritesheet:frame")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.33333334, 0.5, 0.6666667, 0.8333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [21, 22, 23, 24, 25, 26]
+}
+
+[sub_resource type="Animation" id="Animation_lhvu3"]
+resource_name = "run_right"
+length = 0.64285713
+loop_mode = 1
+step = 0.071428575
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CangaceiroSpritesheet:frame")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.071428575, 0.14285715, 0.21428573, 0.2857143, 0.35714287, 0.42857146),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [14, 15, 16, 17, 18, 19, 20]
+}
+
+[sub_resource type="Animation" id="Animation_4sjlk"]
+resource_name = "run_up"
+length = 0.5714286
+loop_mode = 1
+step = 0.071428575
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CangaceiroSpritesheet:frame")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.071428575, 0.14285715, 0.21428573, 0.2857143, 0.35714287),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [35, 36, 37, 38, 39, 40]
+}
+
+[sub_resource type="Animation" id="Animation_ghijl"]
+resource_name = "walk_right"
+length = 0.8
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CangaceiroSpritesheet:frame")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.016222222, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [10, 8, 9, 10, 11, 12, 13]
+}
+
+[sub_resource type="Animation" id="Animation_qp52p"]
+resource_name = "walk_up"
+length = 0.7
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CangaceiroSpritesheet:frame")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [28, 29, 30, 31, 32, 33]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_44cfe"]
+_data = {
+&"RESET": SubResource("Animation_ij6vw"),
+&"idle_down": SubResource("Animation_44cfe"),
+&"idle_up": SubResource("Animation_dd465"),
+&"run_right": SubResource("Animation_lhvu3"),
+&"run_up": SubResource("Animation_4sjlk"),
+&"walk_right": SubResource("Animation_ghijl"),
+&"walk_up": SubResource("Animation_qp52p")
+}
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1867063095]
+script = ExtResource("1_ij6vw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1767555978]
+position = Vector2(-2, -3.5)
+shape = SubResource("RectangleShape2D_bhunq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=177585213]
+libraries/ = SubResource("AnimationLibrary_44cfe")
+
+[node name="CangaceiroSpritesheet" type="Sprite2D" parent="." unique_id=1468801126]
+texture_filter = 1
+position = Vector2(0, -29)
+texture = ExtResource("1_f50pn")
+hframes = 7
+vframes = 6
+frame = 2
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1221787763]
